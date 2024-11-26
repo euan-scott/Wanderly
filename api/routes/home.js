@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const fetch = require('node-fetch'); // Ensure you use version 2 for CommonJS compatibility
+const fetch = require('node-fetch'); 
 
-// Define your APIs
-const FLIGHT_API_URL = 'https://your-flight-api.com/deals'; // Replace with the actual flight API endpoint
-const HOTEL_API_URL = 'https://sky-scanner3.p.rapidapi.com/hotels/search?entityId=27537542'; // Replace with the actual hotel API endpoint
-const API_KEY = '6a8ef3ce96msha8dfa3a32b1bc90p1c0e29jsn77f78ab4198b'; // Replace with your actual API key
+// Define APIs
+const FLIGHT_API_URL = 'https://your-flight-api.com/deals'; 
+const HOTEL_API_URL = 'https://sky-scanner3.p.rapidapi.com/hotels/search?entityId=27537542'; 
+const API_KEY = '6a8ef3ce96msha8dfa3a32b1bc90p1c0e29jsn77f78ab4198b'; 
 
 // Combine and serve deals
 router.get('/deals', async (req, res) => {
@@ -14,7 +14,7 @@ router.get('/deals', async (req, res) => {
         const flightResponse = await fetch(FLIGHT_API_URL, {
             headers: {
                 'x-rapidapi-key': API_KEY,
-                'x-rapidapi-host': 'your-flight-api-host', // Replace with actual host
+                'x-rapidapi-host': 'your-flight-api-host', // Replace 
             },
         });
         const flightData = await flightResponse.json();
@@ -23,7 +23,7 @@ router.get('/deals', async (req, res) => {
         const hotelResponse = await fetch(HOTEL_API_URL, {
             headers: {
                 'x-rapidapi-key': API_KEY,
-                'x-rapidapi-host': 'your-hotel-api-host', // Replace with actual host
+                'x-rapidapi-host': 'your-hotel-api-host', // Replace 
             },
         });
         const hotelData = await hotelResponse.json();

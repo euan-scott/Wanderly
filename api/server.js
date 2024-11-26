@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
 //const destinationsRoutes = require('./routes/destinations');
-const bookingsRoutes = require('./routes/bookings');
+//const bookingsRoutes = require('./routes/bookings');
 
 const app = express();
 const PORT = 3000;
@@ -16,7 +16,7 @@ app.use(express.json());
 // Routes
 app.use('/auth', authRoutes);
 //app.use('/destinations', destinationsRoutes);
-app.use('/bookings', bookingsRoutes);
+//app.use('/bookings', bookingsRoutes);
 
 
 // Test route

@@ -35,30 +35,24 @@
         <h1>Register</h1>
 <aside>
 <div class="Register">
- <form action ="register">
+    <form id="register-form" action="http://localhost:3000/auth/register" method="POST">
+        <label for="forename">Please enter Your First Name</label>
+        <input type="text" id="forename" name="forename" required><br><br>
     
-    <label for="fname">Please enter Your First Name</label>
-    <input type ="text" id="fname"><br><br>
-
-    <label for="sname">Please enter Your Surname</label>
-    <input type ="text" id="sname"><br><br>
-
-    <label for ="email">Please Enter Your Email</label><br>
-    <input type ="text" id="email"><br><br>
-
-    <label for="phoneNumber">Please Enter Your Phone Number</label><br>
-    <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
-
-    <label for ="password">Please Create Your Password</label><br>
-    <input type ="text" id="password"><br><br>
-
-    <button>Register</button>
-   
-
-
-
-
-</form>
+        <label for="surname">Please enter Your Surname</label>
+        <input type="text" id="surname" name="surname" required><br><br>
+    
+        <label for="email">Please Enter Your Email</label>
+        <input type="email" id="email" name="email" required><br><br>
+    
+        <label for="phoneNumber">Please Enter Your Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+    
+        <label for="password">Please Create Your Password</label>
+        <input type="password" id="password" name="password" required><br><br>
+    
+        <button type="submit">Register</button>
+    </form>
 
 </div>
 </aside>

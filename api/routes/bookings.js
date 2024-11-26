@@ -1,33 +1,45 @@
-const express = require('express');
-const router = express.Router();
-const fetch = require('node-fetch'); // Ensure `node-fetch` is installed (npm install node-fetch)
+document.getElementById("booking-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-// Route to fetch hotel data from the RapidAPI
-router.get('/hotels', async (req, res) => {
-  const url = 'https://sky-scanner3.p.rapidapi.com/hotels/search?entityId=27537542'; 
-  const options = {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-key': '6a8ef3ce96msha8dfa3a32b1bc90p1c0e29jsn77f78ab', 
-      'x-rapidapi-host': 'sky-scanner3.p.rapidapi.com',
-    },
-  };
+    // Collect form data
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const cardName = document.getElementById("cardName").value;
+    const cardNumber = document.getElementById("cardNumber").value;
+    const expiryDate = document.getElementById("expiryDate").value;
+    const cvc = document.getElementById("cvc").value;
+    const weekly = document.getElementById("weekly").checked;
+    const monthly = document.getElementById("monthly").checked;
 
-  try {
-    const response = await fetch(url, options);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    const data = await response.json();
-    res.json({
-      message: 'Hotels fetched successfully!',
-      data: data, // Send the hotel data to the frontend
-    });
-  } catch (error) {
-    console.error('Error fetching hotels:', error);
-    res.status(500).json({
-      message: 'Error fetching hotels',
-      error: error.message,
-    });
-  }
+    const payload = {
+        email,
+        phoneNumber: phone,
+        cardName,
+        cardNumber,
+        expiryDate,
+        cvc,
+        paymentFrequency: weekly ? "weekly" : monthly ? "monthly" : "one-time"
+    };
+
+    try {
+        // Send booking data to the backend
+        const response = await fetch("http://localhost:3000/bookings/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            alert(`Booking Confirmed! Booking ID: ${result.bookingId}`);
+        } else {
+            const error = await response.json();
+            alert(`Error: ${error.message}`);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("An error occurred while processing the booking.");
+    }
 });
-
-module.exports = router;

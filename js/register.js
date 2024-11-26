@@ -1,48 +1,37 @@
-document.querySelector('form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent default form submission
-  
-    const firstName = document.getElementById('fname').value;
-    const surname = document.getElementById('sname').value;
+document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent form from refreshing the page
+
+    // Get form data
+    const forename = document.getElementById('forename').value;
+    const surname = document.getElementById('surname').value;
     const email = document.getElementById('email').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
     const password = document.getElementById('password').value;
-  
-    const responseMessage = document.getElementById('response-message') || null;
-  
+
+    // API endpoint
+    const apiUrl = 'http://localhost:3000/auth/register';
+
     try {
-      const response = await fetch('/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ firstName, surname, email, phoneNumber, password }),
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        // Notify the user and redirect them to the login page
-        alert(result.message);
-        if (responseMessage) {
-          responseMessage.textContent = 'Registration successful!';
-          responseMessage.style.color = 'green';
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ forename, surname, email, phoneNumber, password }),
+        });
+
+        const result = await response.json();
+
+        // Display a success or error message
+        const messageDiv = document.getElementById('message');
+        if (response.ok) {
+            messageDiv.innerHTML = `<p style="color: green;">${result.message}</p>`;
+            document.getElementById('register-form').reset(); // Clear form
+        } else {
+            messageDiv.innerHTML = `<p style="color: red;">Error: ${result.message || result.error}</p>`;
         }
-        window.location.href = 'login.html';
-      } else {
-        // Handle errors
-        alert(result.message);
-        if (responseMessage) {
-          responseMessage.textContent = result.message;
-          responseMessage.style.color = 'red';
-        }
-      }
     } catch (error) {
-      console.error('Error:', error);
-      if (responseMessage) {
-        responseMessage.textContent = 'An error occurred. Please try again.';
-        responseMessage.style.color = 'red';
-      }
-      alert('An error occurred. Please try again.');
+        console.error('Error:', error);
+        document.getElementById('message').innerHTML = `<p style="color: red;">Server error. Please try again later.</p>`;
     }
-  });
-  
+});

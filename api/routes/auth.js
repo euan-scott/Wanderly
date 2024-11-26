@@ -36,6 +36,11 @@ router.post('/register', async (req, res) => {
   try {
     let pool = await sql.connect(dbConfig);
 
+      // Validate input fields
+      if (!forename || !surname || !email || !phoneNumber || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+
     // Check if the email already exists
     const emailCheckResult = await pool.request()
       .input('email', sql.VarChar, email)
@@ -46,7 +51,7 @@ router.post('/register', async (req, res) => {
     }
 
     // Generate a unique userId
-    const userId = uuidv4().substring(0, 10);
+    const userId = Math.random().toString(36).substr(2, 10);
 
     // Hash the password and truncate it to fit the column
     const hashedPassword = await bcrypt.hash(password, 10);
