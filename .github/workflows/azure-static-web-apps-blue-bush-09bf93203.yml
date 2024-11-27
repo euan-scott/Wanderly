@@ -44,7 +44,7 @@ jobs:
           ###### Repository/Build Configurations ######
           app_location: "/" # Path to your app's source code
           api_location: "api" # Path to your API (if applicable)
-          output_location: "build" # Path to your app's built artifacts
+          output_location: "" # Path to your app's built artifacts
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
