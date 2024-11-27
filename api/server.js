@@ -27,3 +27,4 @@ app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)
 
 
 
+// commented out the routes for bookings and destinations 
