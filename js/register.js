@@ -1,5 +1,5 @@
 document.getElementById('register-form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent form from refreshing the page
+   // e.preventDefault(); // Prevent form from refreshing the page
 
     // Get form data
     const forename = document.getElementById('forename').value;
@@ -11,6 +11,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     // API endpoint
     const apiUrl = 'http://localhost:3000/auth/register';
 
+    async function register(event){
     try {
         const response = await fetch(apiUrl, {
             method: 'POST',
@@ -33,5 +34,5 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('message').innerHTML = `<p style="color: red;">Server error. Please try again later.</p>`;
-    }
+    }}
 });

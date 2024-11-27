@@ -1,5 +1,5 @@
 document.querySelector('form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    //e.preventDefault(); // Prevent the default form submission
   
     // Capture email and password from the form inputs
     const email = document.getElementById('email').value;
