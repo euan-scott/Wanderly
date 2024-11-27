@@ -12,8 +12,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Routes
 app.use('/auth', authRoutes);
 //app.use('/destinations', destinationsRoutes);
 //app.use('/bookings', bookingsRoutes);

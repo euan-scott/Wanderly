@@ -6,58 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Wanderly-Login/Register</title>
-    <script defer src="js/login.js"></script>
+    <title>Wanderly - Login</title>
+    <script defer src="js/login.js"></script> <!-- Ensure your JS file is linked properly -->
 </head>
 <body>
     <main>
         <header>
-        <div class ="logo">
-            <a href="index.html"> <img src="img/Logo.png" alt="Logo" title="Home Page"> </a>
-        </div>
+            <div class="logo">
+                <a href="index.html"><img src="img/Logo.png" alt="Logo" title="Home Page"></a>
+            </div>
 
+            <nav>
+                <ul>
+                    <li><a href="Destinations.html">Destinations</a></li>
+                    <li><a href="Booking.html">Booking</a></li>
+                    <li><a href="Budget.html">Budget</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
 
-        <nav>
-            <ul>
-
-                <li><a href="Destinations.html">Destinations</a></li>
-                <li><a href="Booking.html">Booking</a></li>
-                <li><a href="Budget.html">Budget</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-            </ul>
-        </nav>
-
-        <div class ="Profile">
-            <a href="login.html"> <img src="img/Profile icon.jpg" alt="Logo" title="Home Page"> </a>
-        </div>
+            <div class="Profile">
+                <a href="login.html"><img src="img/Profile icon.jpg" alt="Profile Icon" title="Login"></a>
+            </div>
         </header>
+
         <h1>Log in</h1>
-<aside>
-<div class="Login">
- <form action ="login">
-    <label for ="email">Please Enter Your Email</label><br>
 
-    <input type ="text" id="email"><br><br>
+        <aside>
+            <div class="Login">
+                <form id="login-form"> <!-- Added an id to target the form in JavaScript -->
+                    <label for="email">Please Enter Your Email</label><br>
+                    <input type="email" id="email" name="email" required><br><br> <!-- Set input type to 'email' for validation -->
 
-    <label for ="password">Please Enter Your Password</label><br>
-    <input type ="text" id="password"><br><br>
+                    <label for="password">Please Enter Your Password</label><br>
+                    <input type="password" id="password" name="password" required><br><br> <!-- Set input type to 'password' -->
 
-    <button>Login</button>
-    <a href="Forgot Password.html"> Forgot Password</a>
-   
+                    <button type="submit">Login</button>
+                    <a href="Forgot Password.html">Forgot Password</a>
+                </form>
 
+                <!-- A place to show success or error messages -->
+                <p id="response-message"></p>
+            </div>
+        </aside>
 
-
-
-</form>
-</div>
-</aside>
-
-<footer>
-
-</footer>
-
-</main>
+        <footer>
+            <p>&copy; 2024 Wanderly. All rights reserved.</p>
+        </footer>
+    </main>
 </body>
 </html>

@@ -64,7 +64,7 @@ router.post('/register', async (req, res) => {
          .input('surname', sql.VarChar, surname)
          .input('email', sql.VarChar, email)
          .input('phoneNumber', sql.VarChar, phoneNumber)
-        .input('password', sql.VarChar, truncatedPassword)
+        .input('password', sql.VarChar, password)
          .query(`
         INSERT INTO [User] (userId, forename, surname, email, phoneNumber, password) 
         VALUES (@userId, @forename, @surname, @email, @phoneNumber, @password)
@@ -73,6 +73,47 @@ router.post('/register', async (req, res) => {
     res.json({ message: 'Registration successful' });
   } catch (err) {
     console.error('Error in register route:', err.message);
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+// Login route
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required' });
+    }
+
+    let pool = await sql.connect(dbConfig);
+    const result = await pool.request()
+      .input('email', sql.VarChar, email)
+      .query('SELECT * FROM [User] WHERE email = @email');
+
+    if (result.recordset.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const user = result.recordset[0];
+   
+
+    if (user.password !== password) {
+      return res.status(401).json({ message: 'Invalid password' });
+    }
+
+    res.json({
+      message: 'Login successful',
+      user: {
+        userId: user.userId,
+        forename: user.forename,
+        surname: user.surname,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+      },
+    });
+  } catch (err) {
+    console.error('Error in login route:', err.message);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
