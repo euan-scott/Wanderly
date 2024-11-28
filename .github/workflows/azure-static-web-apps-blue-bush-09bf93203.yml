@@ -31,4 +31,5 @@ jobs:
           app_location: "/" # Path where your `index.html` is located
           api_location: "api" # Path to your backend API folder (if applicable)
           output_location: "" # Leave empty if no build step is required
+          app_build_command: "npm run build"
           ###### End of Repository/Build Configurations ######

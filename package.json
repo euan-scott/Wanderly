@@ -4,7 +4,8 @@
     "description": "Wanderly project description",
     "main": "api/server.js",
     "scripts": {
-      "start": "node api/server.js"
+      "start": "node api/server.js",
+      "build": "echo 'No build required'"
     },
     "dependencies": {
       "@azure/msal-node": "^2.16.2",
