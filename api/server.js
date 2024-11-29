@@ -8,7 +8,7 @@ const authRoutes = require('./routes/auth');
 const app = express();
 const PORT = process.env.PORT ||3000;
 
-app.use(cors());
+app.use(cors({ origin: 'https://blue-bush-09bf93203.5.azurestaticapps.net'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());

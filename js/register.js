@@ -8,10 +8,8 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const phoneNumber = document.getElementById('phoneNumber').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    // Update the API URL for deployed environments
-    const apiUrl = window.location.hostname.includes('localhost')
-        ? 'http://localhost:3000/auth/register' // Local
-        : 'https://blue-bush-09bf93203.5.azurestaticapps.net/auth/register'; // Replace with your deployed API URL
+    // API 
+    const apiUrl = 'https://blue-bush-09bf93203.5.azurestaticapps.net/auth/register';
 
     try {
         // Make the API request
