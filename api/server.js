@@ -6,7 +6,7 @@ const authRoutes = require('./routes/auth');
 //const bookingsRoutes = require('./routes/bookings');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ||3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   });
   
 // Start server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
 
 
