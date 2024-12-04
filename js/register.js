@@ -9,7 +9,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const password = document.getElementById('password').value.trim();
 
     // API 
-    const apiUrl = 'https://blue-bush-09bf93203.5.azurestaticapps.net/auth/register';
+    const apiUrl = 'https://blue-bush-09bf93203.5.azurestaticapps.net/api/auth/register';
 
     try {
         // Make the API request

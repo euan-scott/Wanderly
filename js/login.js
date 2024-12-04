@@ -16,7 +16,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
   try {
       // Send a POST request to the login endpoint
-      const response = await fetch('https://blue-bush-09bf93203.5.azurestaticapps.net/auth/login', {
+      const response = await fetch('https://blue-bush-09bf93203.5.azurestaticapps.net/auth.login', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

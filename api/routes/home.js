@@ -3,7 +3,7 @@ const router = express.Router();
 const fetch = require('node-fetch'); 
 
 // Define APIs
-const FLIGHT_API_URL = 'https://your-flight-api.com/deals'; 
+const FLIGHT_API_URL = ''; 
 const HOTEL_API_URL = 'https://sky-scanner3.p.rapidapi.com/hotels/search?entityId=27537542'; 
 const API_KEY = '6a8ef3ce96msha8dfa3a32b1bc90p1c0e29jsn77f78ab4198b'; 
 
