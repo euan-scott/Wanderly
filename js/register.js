@@ -11,7 +11,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     // API 
     const apiUrl = '/register.html';
 
-    async function register(){
+    async function register(event){
     try {
         // Make the API request
         const response = await fetch(apiUrl, {
