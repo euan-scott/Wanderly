@@ -10,65 +10,78 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
 /* Header Section */
-header {
+header{
     width: 100%;
     height: 15%;
     background-color: #FFFF;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    padding: 0;  /* Remove any default padding */
+    margin: 0;  /* Remove any default margin */
+    overflow: hidden;
 }
 
-.logo {
+.logo{
     width: 10%;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
-.logo img {
-    width: 100%;
+
+.logo img{
+    width: 40%;
     object-fit: cover;
 }
 
 nav {
-    width: 70%;
+    width: 60%;
+    margin-top: 0; /* Ensure no margin above the nav */
+    padding: 0;
 }
 
 nav ul {
     display: flex;
     justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-nav ul li {
+nav ul li a {
     text-decoration: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     color:black;
     text-transform: uppercase;
     font-weight: bold;
+    
 }
 
-nav ul li a {
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.Profile {
+.Profile
+{
     width: 7%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    text-align: right;
+    margin-left: 15%;
 }
 
-.Profile img {
+.Profile img
+{
     width: 40%;
     object-fit: cover;
 }
+
+div{text-align: center;}
 
 /* Main Content */
 main {
@@ -77,9 +90,13 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
 }
 
 h1 {
+    align-items: center;
+    text-align: center;
+    padding-top:50px ;
     color: black;
     margin-bottom: 30px;
     font-size: 2rem;
