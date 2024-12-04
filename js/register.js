@@ -9,7 +9,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const password = document.getElementById('password').value.trim();
 
     // API 
-    const apiUrl = 'api/routes/auth/register';
+    const apiUrl = '/register.html';
 
     async function register(event){
     try {
