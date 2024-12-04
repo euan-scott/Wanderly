@@ -42,7 +42,12 @@ nav ul {
 }
 
 nav ul li {
-    list-style: none;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color:black;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 nav ul li a {
