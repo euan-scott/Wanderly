@@ -1,5 +1,5 @@
 document.getElementById('register-form').addEventListener('submit', async (e) => {
-    //e.preventDefault(); // Prevent form from refreshing the page
+    e.preventDefault(); // Prevent form from refreshing the page
 
     // Get form data
     const forename = document.getElementById('forename').value.trim();
@@ -9,7 +9,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const password = document.getElementById('password').value.trim();
 
     // API 
-    const apiUrl = 'api/routes/auth/hello';
+    const apiUrl = 'http://localhost:3000/auth/register';
 
     
     try {

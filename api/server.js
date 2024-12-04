@@ -6,9 +6,9 @@ const authRoutes = require('./routes/auth');
 //const bookingsRoutes = require('./routes/bookings');
 
 const app = express();
-const PORT = process.env.PORT ||3000;
+const PORT = 3000;
 
-app.use(cors({ origin: 'https://blue-bush-09bf93203.5.azurestaticapps.net'}));
+app.use(cors({ origin: '*'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   });
   
 // Start server
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 
 
 
