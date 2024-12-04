@@ -11,7 +11,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     // API 
     const apiUrl = '/register.html';
 
-    async function register(event){
+    
     try {
         // Make the API request
         const response = await fetch(apiUrl, {
@@ -40,5 +40,5 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('message').innerHTML = `<p style="color: red;">Server error. Please try again later.</p>`;
-    }}
+    }
 });
