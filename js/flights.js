@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': '75876aaa83msh4763871bbbc140ep1b0b5bjsn1d77aff7ca41',
+                'x-rapidapi-key': '6a8ef3ce96msha8dfa3a32b1bc90p1c0e29jsn77f78ab4198b',
                 'x-rapidapi-host': 'sky-scanner3.p.rapidapi.com',
             },
         };
