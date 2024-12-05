@@ -10,6 +10,7 @@
     <title>Wanderly-Login/Register</title>
 </head>
 <body>
+    <script src='js/budget.js'></script>
     <main>
         <header>
         <div class ="logo">
@@ -19,12 +20,18 @@
 
         <nav>
             <ul>
-
                 <li><a href="Destinations.html">Destinations</a></li>
                 <li><a href="Booking.html">Booking</a></li>
                 <li><a href="Budget.html">Budget</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="register.html">Register</a></li>
+                <label for="Airports">Airports:</label>
+                <li><select id="origin"></li>
+                    <option value="LAX">Los Angles</option>
+                    <option value="JFK">New York</option>
+                    <option value="LGW">London</option>
+                    </select>
+                </li>
             </ul>
         </nav>
 
@@ -35,7 +42,7 @@
         <h1>Budget</h1>
 <aside>
 <div class="Budget">
- <form action ="budget">
+ <form action ="#" method="post">
     
     <label for="budget">Please enter Your Budget</label>
     <input type ="text" id="budget"><br><br>
@@ -43,7 +50,7 @@
     <label for="date_of_holiday">When are you going on Holiday</label>
     <input type ="date" id="date_of_holiday"><br><br>
 
-    <button>Confirm</button>
+    <button type="submit">Confirm</button>
 </form>
 </div>
 
