@@ -118,12 +118,20 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Forgot Password - Send Reset Email
+// Forgot Password 
 router.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
 
   try {
+    // Check for missing email
+    if (!email) {
+      return res.status(400).json({ message: 'Email is required' });
+    }
+
+    // Connect to the database
     let pool = await sql.connect(dbConfig);
+
+    // Check if the email exists in the database
     const result = await pool.request()
       .input('email', sql.VarChar, email)
       .query('SELECT * FROM [User] WHERE email = @email');
@@ -134,49 +142,47 @@ router.post('/forgot-password', async (req, res) => {
 
     // Simulate a reset token
     const resetToken = Math.random().toString(36).substring(2);
-    console.log(`Reset token for ${email}: ${resetToken}`);
 
-    // Send email with reset token
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'your-email@gmail.com', // Replace with your email
-        pass: 'your-email-password', // Replace with your email password
-      },
-    });
+    // Simulate sending the reset token (log it to the console)
+    console.log(`Simulated email sent to ${email} with reset token: ${resetToken}`);
 
-    await transporter.sendMail({
-      to: email,
-      subject: 'Password Reset',
-      text: `Your password reset token is: ${resetToken}`,
-    });
-
-    res.json({ message: 'Password reset email sent!' });
+    // Respond with a success message
+    res.status(200).json({ message: `Password reset link sent to ${email}` });
   } catch (err) {
     console.error('Error in forgot-password route:', err.message);
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
-// Update Password
+
+
+// Reset Password 
 router.post('/reset-password', async (req, res) => {
   const { email, newPassword } = req.body;
 
   try {
-    let pool = await sql.connect(dbConfig);
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    const truncatedPassword = hashedPassword.substring(0, 50);
+    // Ensure email and new password are provided
+    if (!email || !newPassword) {
+      return res.status(400).json({ message: 'Both email and new password are required.' });
+    }
 
-    await pool.request()
+    // Update the password in the database (No Hashing)
+    let pool = await sql.connect(dbConfig);
+    const result = await pool.request()
       .input('email', sql.VarChar, email)
-      .input('password', sql.VarChar, truncatedPassword)
+      .input('password', sql.VarChar, newPassword) // Store plain text password
       .query('UPDATE [User] SET password = @password WHERE email = @email');
 
-    res.json({ message: 'Password updated successfully!' });
+    if (result.rowsAffected[0] === 0) {
+      return res.status(404).json({ message: 'Email not found in the database.' });
+    }
+
+    res.status(200).json({ message: 'Password updated successfully! You can now log in with your new password.' });
   } catch (err) {
     console.error('Error in reset-password route:', err.message);
-    res.status(500).json({ message: 'Server error', error: err.message });
+    res.status(500).json({ message: 'Server error. Please try again later.', error: err.message });
   }
 });
+
 
 module.exports = router;

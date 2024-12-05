@@ -1,64 +1,70 @@
-*{
+/* General Reset */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #51ADF0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
-/*header start*/
-header{
+
+/* Header Section */
+header {
     width: 100%;
     height: 15%;
     background-color: #FFFF;
     display: flex;
     align-items: center;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
 }
 
-.logo{
+.logo {
     width: 10%;
     display: flex;
     justify-content: center;
 }
 
-
-.logo img{
+.logo img {
     width: 40%;
     object-fit: cover;
 }
 
-
-nav{
+nav {
     width: 60%;
+    margin-top: 0;
+    padding: 0;
 }
 
-nav ul{
+nav ul {
     display: flex;
     justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
-    color:black;
+    color: black;
     text-transform: uppercase;
     font-weight: bold;
-    
 }
 
-.Profile
-{
+.Profile {
     width: 7%;
     display: flex;
     justify-content: flex-end;
@@ -66,77 +72,107 @@ nav ul li a {
     margin-left: 15%;
 }
 
-.Profile img
-{
+.Profile img {
     width: 40%;
     object-fit: cover;
 }
 
-div{text-align: center;}
-/*header end*/
-
-
-.text{
-    color: black ;
- 
+div {
+    text-align: center;
 }
 
+/* Main Content */
+main {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
 
-footer{
+h1 {
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    color: black;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Login {
+    width: 50%;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Login label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+.Login input[type="text"],
+.Login input[type="email"],
+.Login input[type="password"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Login input[type="text"]:focus,
+.Login input[type="email"]:focus,
+.Login input[type="password"]:focus {
+    border-color: #51ADF0;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(81, 173, 240, 0.5);
+}
+
+button {
+    width: 100%;
+    height: 45px;
+    background-color: #51ADF0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4193d1;
+}
+
+/* Footer Section */
+footer {
     background-color: #FFFF;
-    opacity: 1;
-    height: 4%;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    left: 0;
     bottom: 0;
     width: 100%;
     color: black;
-    
-}
-h1{
-    align-items: center;
-    text-align: center;
-    padding-top:50px ;
-}
- .Login
- {
-    width: 50%;
-    height: 50%;
- }
-aside{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
-    padding: 100px;
-}
-
-aside .login{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 1px;
-}
-
-.Login label 
-{
-    font-size: 25px;
-    
-}
-  
-.Login input[type="text"]
-{
-    height: 100%;
-    width: 100%;
-   
-}
-
-button
-{
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
 }

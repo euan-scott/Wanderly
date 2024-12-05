@@ -163,18 +163,3 @@ button:hover {
     background-color: #4193d1;
 }
 
-/* Footer Section */
-footer {
-    background-color: #FFFF;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-}

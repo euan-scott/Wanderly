@@ -60,6 +60,4 @@ function combineDeals(flights, hotels) {
     }));
 
     return { weekDeals, seasonDeals };
-}
-
-module.exports = router;
+}module.exports = router;
